@@ -1,0 +1,31 @@
+<view class="chart">
+    <view class="record-box">
+        <scroll-view scroll-y class="record" scroll-into-view="{= currentRecord =}">
+            <block s-for="{{record}}">
+                <view s-if="{{item.type =='other'}}" class="record-line" style="padding-bottom:20rpx">
+                    <view class="avatar">{{item.name}}</view>
+                    <view class="word">
+                        <view class="time">{{item.time}}</view>
+                        <view id="{{index}}" class="record-item">{{item.text}}</view>
+                    </view>
+                </view>
+
+                <view s-if="{{item.type =='self'}}" class="record-line self" style="padding-bottom:20rpx">
+                    <view class="avatar">{{item.name}}</view>
+                    <view class="word">
+                        <view class="time">{{item.time}}</view>
+                        <view id="{{index}}" class="record-item">{{item.text}}</view>
+                    </view>
+                </view>
+            </block>
+
+        </scroll-view>
+    </view>
+
+    <view class="input">
+        <input class="textarea" confirm-hold="true" value="{= value =}" bindinput="onInput" bindfocus="onFocus"
+            bindblur="onBLur"
+            bindconfirm="onConfirm"></input>
+        <button class="push" bindtap="push">发送</button>
+    </view>
+</view>
